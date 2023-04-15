@@ -1,0 +1,71 @@
+<!--
+Question 47の問題の部分は
+「サイトのタイトルを下揃えにする」
+という部分。これを実装するための方法を2つ考えた。
+-->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>test</title>
+  <style>
+    body {
+      background-color: skyblue;
+    }
+    /* flexを使用して下揃え
+       拡張性が高い */
+    #header1 {
+      display: flex;
+      /* justify-content: space-between; */
+    }
+    #header1 .site-title {
+      display: flex;
+      flex-direction: column;
+      align-items: end;
+      justify-content: end;
+    }
+    #header1 h1 {
+      margin: 0;
+      font-size: 40px;
+    }
+    #header1 p {
+      margin: 0;
+    }
+    /* float: left + calcでmargin-topを計算して下揃え
+       実装は簡単 */
+    #header2 h1 {
+      margin: 0;
+      font-size: 40px;
+    }
+    #header2 .site-title {
+      float: left;
+    }
+    #header2 img {
+      float: left;
+    }
+    #header2 .site-title h1 {
+      /* 開発者ツールでheaderの縦の大きさとh1の縦の大きさを調べ、
+         calc関数でmargin-topの大きさを算出 */
+      margin-top: calc(408px - 57.6px)
+    }
+  </style>
+</head>
+<body>
+<div id="header1">
+  <img src="./IMG_1825.JPG">
+  <div class="site-title">
+    <h1>ハルよ来い来い</h1>
+    <p>日記ブログ</p>
+  </div>
+</div> <!-- header1 -->
+
+<div width="100%" style="border-bottom: solid 3px #aaa; margin: 5px 0;"></div>
+
+<div id="header2">
+  <img src="./IMG_1825.JPG">
+  <div class="site-title">
+    <h1>ハルよ来い来い</h1>
+  </div>
+</div> <!-- header2 -->
+</body>
+</html>
