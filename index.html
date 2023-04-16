@@ -12,17 +12,28 @@ Question 47の問題の部分は
     body {
       background-color: skyblue;
     }
+    #header1 img {
+      width: 400px;
+      height: 400px;
+    }
+    #header2 img {
+      width: 400px;
+      height: 400px;
+    }
     /* flexを使用して下揃え
-       拡張性が高い */
+       今っぽい方法で拡張性が高い */
     #header1 {
       display: flex;
       /* justify-content: space-between; */
     }
     #header1 .site-title {
       display: flex;
+      /* 縦に並べる */
       flex-direction: column;
-      align-items: end;
-      justify-content: end;
+      /* 要素の並び方の方向 */
+      justify-content: end; /* ここで下揃えにしている */
+      /* 要素の中身の方向 */
+      align-items: center;
     }
     #header1 h1 {
       margin: 0;
@@ -30,6 +41,8 @@ Question 47の問題の部分は
     }
     #header1 p {
       margin: 0;
+      font-size: 20px;
+      color: #C2EEFF;
     }
     /* float: left + calcでmargin-topを計算して下揃え
        実装は簡単 */
@@ -44,28 +57,31 @@ Question 47の問題の部分は
       float: left;
     }
     #header2 .site-title h1 {
-      /* 開発者ツールでheaderの縦の大きさとh1の縦の大きさを調べ、
-         calc関数でmargin-topの大きさを算出 */
-      margin-top: calc(408px - 57.6px)
+      /* 開発者ツールでheaderの縦の大きさとh1の縦の大きさを調べる。
+         margin-topをいっぱいまで大きくする。 */
+      margin-top: calc(408px - 57.6px) /* めんどくさい計算はプログラムにやってもらおう！ */
     }
   </style>
 </head>
 <body>
 <div id="header1">
-  <img src="./IMG_1825.JPG">
+  <img src="./haibisukasu.jpg">
   <div class="site-title">
-    <h1>ハルよ来い来い</h1>
-    <p>日記ブログ</p>
+    <h1>ハルがキタ</h1>
+    <p>Spring has come</p>
   </div>
 </div> <!-- header1 -->
 
 <div width="100%" style="border-bottom: solid 3px #aaa; margin: 5px 0;"></div>
 
 <div id="header2">
-  <img src="./IMG_1825.JPG">
+  <img src="./haibisukasu.jpg">
   <div class="site-title">
-    <h1>ハルよ来い来い</h1>
+    <h1>ハルがキタ</h1>
   </div>
 </div> <!-- header2 -->
+
+<!-- 下に何か要素を置くときは clear: bothを忘れずに -->
+<p style="clear: both;"><img width="60px" height="60px" src="./kita.gif"></p>
 </body>
 </html>
